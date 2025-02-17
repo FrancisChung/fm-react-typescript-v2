@@ -7,6 +7,10 @@ https://fem-react-typescript.vercel.app/
 \
 https://github.com/stevekinney/name-badges
 
+#### Name Badges Exercise
+Exercise Instructions: \
+https://fem-react-typescript.vercel.app/Refactoring%20from%20PropTypes,%20an%20exercise.md
+
 ### Course Description
 
 Catch errors in your code as you type without having to leave your editor! That's the power of using TypeScript with React. Learn to use TypeScript with React components ensuring you have the correct properties. And use the Context API, React Hooks, and type props to build more robust and reliable Typescript applications at scale!
