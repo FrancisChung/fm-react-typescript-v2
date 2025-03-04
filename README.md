@@ -17,3 +17,8 @@ Catch errors in your code as you type without having to leave your editor! That'
 
 
 ![Screenshot from 2025-02-17 14-20-15](https://github.com/user-attachments/assets/94560c73-1a7a-4b28-a417-49a95db1810e)
+
+
+### Running the Project
+
+To run the project, go to the root folder and type "npm run"
