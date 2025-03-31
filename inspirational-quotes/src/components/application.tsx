@@ -20,7 +20,7 @@ export const fetchQuotes = async (count: number) => {
 };
 
 const Application = () => {
-  const [quote, setQuote] = useState();
+  const [quote, setQuote] = useState<Quote | undefined>();
 
   useEffect(() => {
     fetchRandomQuote().then(setQuote);
