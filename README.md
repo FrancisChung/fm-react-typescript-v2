@@ -21,4 +21,5 @@ Catch errors in your code as you type without having to leave your editor! That'
 
 ### Running the Project
 
-To run the project, go to the root folder and type "npm run"
+To run the project, go to the root folder and install any node dependencies first ("npm install")
+Then type "npm run"
