@@ -1,9 +1,14 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 const inc = (count: number) => count + 1;
 
 const Counter = () => {
     const [count, setCount] = useState(0);
+    const [draftCount, setDraftCount] = useState(count);
+
+    useEffect(() => {
+        setDraftCount(count);
+    }, [count])
 
     const handleClick = () => {
         setCount(count => count + 1);
@@ -21,8 +26,14 @@ const Counter = () => {
             <button onClick={()=>setCount(count =>count+1)}>➕ Increment</button>
           </div>
           <div>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input type="number" value={count} />
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                setCount(draftCount);
+            }}>
+              <input type="number"
+                     value={draftCount}
+                     onChange={(e) => setDraftCount(e.target.valueAsNumber)}
+              />
               <button type="submit">Update Counter</button>
             </form>
           </div>
