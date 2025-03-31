@@ -16,13 +16,13 @@ const Counter = () => {
           <h1>Days Since the Last Accident</h1>
           <p className="text-6xl">{count}</p>
           <div className="flex gap-2">
-            <button onClick={()=>setCount(count =>count+1)}>➖ Decrement</button>
-            <button>🔁 Reset</button>
-            <button>➕ Increment</button>
+            <button onClick={()=>setCount(count =>count-1)}>➖ Decrement</button>
+            <button onClick={() => setCount(count => count =0)}>🔁 Reset</button>
+            <button onClick={()=>setCount(count =>count+1)}>➕ Increment</button>
           </div>
           <div>
             <form onSubmit={(e) => e.preventDefault()}>
-              <input type="number" value={0} />
+              <input type="number" value={count} />
               <button type="submit">Update Counter</button>
             </form>
           </div>
