@@ -22,10 +22,11 @@ export const fetchQuotes = async (count: number) => {
 
 const Application = () => {
   const [quotes, setQuotes] = useState<Quote[]>([]);
+  const [count, setCount] = useState(10);
 
   return (
     <main className="w-full max-w-2xl py-16 mx-auto">
-      <Quotes>
+      <Quotes count={count} onSubmit={e=> fetchQuotes(count).then(setQuotes)}>
         <div className="grid grid-cols-2 gap-4"></div>
           {quotes.map((quote) => {
             return <InspirationalQuote key={quote.id} content={quote.content}
