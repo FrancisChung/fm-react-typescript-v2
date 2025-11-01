@@ -7,11 +7,19 @@ type InitialState = {
   draftCount: string | number;
 };
 
-
 const initialState: InitialState = {
   count: 0,
   draftCount: 0,
 };
+
+type Action = {
+  type: 'increment' | 'decrement' | 'reset' | 'updateCountFromDraft';
+}
+
+type ActionWithPayload = {
+  type: 'updateDraftCount';
+  payload: number;
+}
 
 const reducer = (state = initialState, action: { type: string, payload: number }) => {
   const { count, draftCount } = state;
@@ -45,12 +53,12 @@ const reducer = (state = initialState, action: { type: string, payload: number }
 
 
 const Counter = () => {
-  const [{ count, draftCount }, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <section className="flex flex-col items-center w-2/3 gap-8 p-8 bg-white border-4 shadow-lg border-primary-500">
       <h1>Days Since the Last Accident</h1>
-      <p className="text-6xl">{count}</p>
+      <p className="text-6xl">{state.count}</p>
       <div className="flex gap-2">
         <button onClick={() => dispatch({ type: 'decrement' })}>
           ➖ Decrement
@@ -69,7 +77,7 @@ const Counter = () => {
         >
           <input
             type="number"
-            value={draftCount}
+            value={state.count}
             onChange={(e) =>
               dispatch({ action: 'updateDraftCount', payload: e.target.value })
             }
