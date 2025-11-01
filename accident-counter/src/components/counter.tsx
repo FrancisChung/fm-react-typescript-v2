@@ -44,34 +44,40 @@ const reducer = (state = initialState, action: any) => {
 
 
 const Counter = () => {
-    const [count, setCount] = useReducer(reducer, initialState);
-    const [draftCount, setDraftCount] = useState(count);
+  const [{ count, draftCount }, dispatch] = useReducer(reducer, initialState);
 
-    setCount(4);
-
-    return (
-          <section className="flex flex-col items-center w-2/3 gap-8 p-8 bg-white border-4 shadow-lg border-primary-500">
-            <h1>Days Since the Last Accident</h1>
-            <p className="text-6xl">{count}</p>
-            <div className="flex gap-2">
-              <button onClick={()=>setCount(count =>count-1)}>➖ Decrement</button>
-              <button onClick={() => setCount(count => count =0)}>🔁 Reset</button>
-              <button onClick={()=>setCount(count =>count+1)}>➕ Increment</button>
-            </div>
-            <div>
-              <form onSubmit={(e) => {
-                  e.preventDefault();
-                  setCount(draftCount);
-              }}>
-                <input type="number"
-                       value={draftCount}
-                       onChange={(e) => setDraftCount(e.target.valueAsNumber)}
-                />
-                <button type="submit">Update Counter</button>
-              </form>
-            </div>
-          </section>
-    );
+  return (
+    <section className="flex flex-col items-center w-2/3 gap-8 p-8 bg-white border-4 shadow-lg border-primary-500">
+      <h1>Days Since the Last Accident</h1>
+      <p className="text-6xl">{count}</p>
+      <div className="flex gap-2">
+        <button onClick={() => dispatch({ type: 'decrement' })}>
+          ➖ Decrement
+        </button>
+        <button onClick={() => dispatch({ type: 'reset' })}>🔁 Reset</button>
+        <button onClick={() => dispatch({ type: 'increment' })}>
+          ➕ Increment
+        </button>
+      </div>
+      <div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            dispatch({ type: 'updateCountFromDraft' });
+          }}
+        >
+          <input
+            type="number"
+            value={draftCount}
+            onChange={(e) =>
+              dispatch({ action: 'updateDraftCount', payload: e.target.value })
+            }
+          />
+          <button type="submit">Update Counter</button>
+        </form>
+      </div>
+    </section>
+  );
 };
 
 export default Counter;
