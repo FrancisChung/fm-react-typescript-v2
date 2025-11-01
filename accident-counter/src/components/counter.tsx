@@ -7,12 +7,13 @@ type InitialState = {
   draftCount: string | number;
 };
 
+
 const initialState: InitialState = {
   count: 0,
   draftCount: 0,
 };
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: { type: string, payload: number }) => {
   const { count, draftCount } = state;
 
   if (action.type === 'increment') {
