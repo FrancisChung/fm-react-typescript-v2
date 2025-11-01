@@ -77,10 +77,7 @@ const Counter = () => {
         >
           <input
             type="number"
-            value={state.count}
-            onChange={(e) =>
-              dispatch({ action: 'updateDraftCount', payload: e.target.value })
-            }
+            value={state.draftCount}
           />
           <button type="submit">Update Counter</button>
         </form>
