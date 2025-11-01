@@ -44,7 +44,7 @@ const reducer = (state = initialState, action: any) => {
 
 
 const Counter = () => {
-    const [count, setCount] = useReducer(reducer, 0);
+    const [count, setCount] = useReducer(reducer, initialState);
     const [draftCount, setDraftCount] = useState(count);
 
     setCount(4);
