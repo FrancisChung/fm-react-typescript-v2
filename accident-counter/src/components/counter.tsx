@@ -1,22 +1,24 @@
-import {useState, useEffect} from "react";
+import {useReducer, useState, Dispatch} from 'react';
 
 const inc = (count: number) => count + 1;
 
+const reducer = (count: number, newValue: number): number => {
+  return newValue;
+};
+
+type ReducerState = ReturnType<typeof reducer>
+
 const Counter = () => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useReducer(reducer, 0);
     const [draftCount, setDraftCount] = useState(count);
 
-    useEffect(() => {
-        setDraftCount(count);
-    }, [count])
+const handleClick = () => {
+  setCount(count => count + 1);
+  setCount(count => count + 1);
+  setCount(count => count + 1);
+  }
 
-    const handleClick = () => {
-        setCount(count => count + 1);
-        setCount(count => count + 1);
-        setCount(count => count + 1);
-    }
-
-    return (
+  return (
         <section className="flex flex-col items-center w-2/3 gap-8 p-8 bg-white border-4 shadow-lg border-primary-500">
           <h1>Days Since the Last Accident</h1>
           <p className="text-6xl">{count}</p>
