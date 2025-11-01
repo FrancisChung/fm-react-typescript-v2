@@ -21,7 +21,7 @@ type ActionWithPayload = {
   payload: number;
 }
 
-const reducer = (state = initialState, action: { type: string, payload: number }) => {
+const reducer = (state = initialState, action: Action | ActionWithPayload) => {
   const { count, draftCount } = state;
 
   if (action.type === 'increment') {
