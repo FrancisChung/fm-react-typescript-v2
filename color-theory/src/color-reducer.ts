@@ -31,7 +31,7 @@ export const colorReducer = (
   }
 
   if (action.type === 'update-rgb-color') {
-    const hexColor = rgb.hex(action.payload.rgb);
+    const hexColor = '#' + rgb.hex(action.payload.rgb);
     return { ...state, hexColor  };
   }
 
