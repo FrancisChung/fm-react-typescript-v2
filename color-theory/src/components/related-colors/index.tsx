@@ -4,10 +4,10 @@ import {
 } from '../../lib/get-related-colors';
 import RelatedColorPalette from './related-color-palette';
 import { Dispatch } from 'react';
-import { AdjustColorAction } from '../../color-reducer';
+import { AdjustColorActions } from '../../color-reducer';
 
 type RelatedColorsProps = {
-  dispatch: Dispatch<AdjustColorAction>
+  dispatch: Dispatch<AdjustColorActions>
   hexColor: string;
 };
 

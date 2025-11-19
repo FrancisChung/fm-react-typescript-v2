@@ -17,7 +17,7 @@ type ColorState = {
   hexColor: string
 }
 
-export type AdjustColorAction = UpdateRGBColorAction | UpdateHexColorAction
+export type AdjustColorActions = UpdateRGBColorAction | UpdateHexColorAction
 
 export const initialState: ColorState = {
   hexColor: '#BADA55'
@@ -25,7 +25,7 @@ export const initialState: ColorState = {
 
 export const colorReducer = (
   state: ColorState = initialState,
-  action: AdjustColorAction
+  action: AdjustColorActions
 )=> {
   if (action.type === 'update-hex-color') {
     const {hexColor} = action.payload;
