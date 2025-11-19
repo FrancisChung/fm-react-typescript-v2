@@ -3,8 +3,11 @@ import HexToCMYK from './to-cmyk';
 import HexToHSL from './to-hsl';
 import HexToHSV from './to-hsv';
 import HexToRGB from './to-rgb';
+import { Dispatch } from 'react';
+import { AdjustColorAction } from '../../color-reducer';
 
 type AdjustColorsProps = {
+  dispatch: Dispatch<AdjustColorAction>
   hexColor: string;
 };
 
