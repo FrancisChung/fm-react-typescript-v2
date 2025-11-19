@@ -17,6 +17,16 @@ type ColorState = {
   hexColor: string
 }
 
+// type HexColor = `#${string}`;
+// const isHexColor = (s: string): s is HexColor => {
+//   return s.startsWith('#');
+// };
+//
+// type RGBString = `rgb(${number}, ${number}, ${number}`
+//
+// type ColorFormats = 'rgb' | 'hex' | 'hsl' | 'hsv'
+// type ActionsTypes = `update-${ColorFormats}-color`
+
 export type AdjustColorActions = UpdateRGBColorAction | UpdateHexColorAction
 
 export const initialState: ColorState = {
