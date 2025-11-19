@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { Dispatch, useState } from 'react';
 import id from 'lodash.uniqueid';
 import AddSavedColor from './add-saved-color';
 import SavedColor from './saved-color';
+import { AdjustColorAction } from '../../color-reducer';
 
 type SavedColorsProps = {
+  dispatch: Dispatch<AdjustColorAction>
   hexColor: string;
 };
 
