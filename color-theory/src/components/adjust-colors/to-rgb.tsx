@@ -1,13 +1,24 @@
 import { hex } from 'color-convert';
 import LabeledInput from '../shared/labeled-input';
+import { Dispatch } from 'react';
+import { AdjustColorActions } from '../../color-reducer';
+import AdjustColors from './index';
 
 type HexToRGBProps = {
+  dispatch: Dispatch<AdjustColorActions>
   hexColor: string;
 };
 
-const HexToRGB = ({ hexColor }: HexToRGBProps) => {
+const HexToRGB = ({ dispatch, hexColor }: HexToRGBProps) => {
   const color = hex.rgb(hexColor);
   const [r, g, b] = color;
+
+  const updateRGB = ({red =r, green =g, blue =b}) => {
+    dispatch({
+      type: 'update-rgb-color',
+      payload: {rgb: [red, green, blue]}
+    })
+  }
 
   return (
     <section className="grid w-full grid-flow-col gap-2">
