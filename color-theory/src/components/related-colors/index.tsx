@@ -3,8 +3,11 @@ import {
   getTriadColors,
 } from '../../lib/get-related-colors';
 import RelatedColorPalette from './related-color-palette';
+import { Dispatch } from 'react';
+import { AdjustColorAction } from '../../color-reducer';
 
 type RelatedColorsProps = {
+  dispatch: Dispatch<AdjustColorAction>
   hexColor: string;
 };
 
