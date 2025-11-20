@@ -14,7 +14,7 @@ const saved = [
   { id: id(), name: 'Blue Fire', hexColor: '#00aadd' },
 ];
 
-const SavedColors = ({ hexColor }: SavedColorsProps) => {
+const SavedColors = ({dispatch, hexColor }: SavedColorsProps) => {
   const [savedColors, setSavedColors] = useState(saved);
 
   return (
@@ -31,6 +31,7 @@ const SavedColors = ({ hexColor }: SavedColorsProps) => {
             key={id}
             name={name}
             hexColor={hexColor}
+            dispatch={dispatch}
             onRemove={() =>
               setSavedColors((colors) =>
                 colors.filter((color) => color.id !== id),
