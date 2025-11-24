@@ -23,14 +23,10 @@ const Application = () => {
         <ItemList
           title="Unpacked Items"
           items={unpackedItems}
-          update={update}
-          remove={remove}
         />
         <ItemList
           title="Packed Items"
           items={packedItems}
-          update={update}
-          remove={remove}
         />
       </section>
       <MarkAllAsUnpacked onClick={markAllAsUnpacked} />
