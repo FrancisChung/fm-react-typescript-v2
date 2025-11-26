@@ -36,7 +36,7 @@ const ItemsProvider = ({ children }: PropsWithChildren) => {
     setItems([...items, item]);
   };
 
-  const update = (id: string, updates: any) => {
+  const update = (id: string, updates: WithoutId) => {
     setItems(updateItem(items, id, updates));
   };
 
