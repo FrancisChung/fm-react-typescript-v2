@@ -10,16 +10,20 @@ import Header from "./components/header";
 import NewItem from "./components/new-item";
 import ItemList from "./components/item-list";
 import MarkAllAsUnpacked from "./components/mark-all-as-unpacked";
+import item from "./components/item";
 
 type ItemsState = {
   items: Item[]
   unpackedItems: Item[]
   packedItems: Item[]
   add: (name: string) => void
-  update: (id: string, updates: any) => void
+  update: (id: string, updates: WithoutId ) => void
   remove: (id: string) => void
   markAllAsUnpacked: () => void
 }
+
+type PartialItem = Partial<Item>;
+type WithoutId = Omit<PartialItem, 'id'>;
 
 export const ItemsContext = createContext({} as ItemsState );
 
