@@ -12,11 +12,9 @@ type LabeledInputProps = {
 
 const LabeledInput = ({
   label,
-  value,
   id,
-  className,
-  type = 'text',
   onChange,
+  ...props
 }: LabeledInputProps) => {
   id = useId() + id;
 
@@ -25,11 +23,8 @@ const LabeledInput = ({
       <label htmlFor={id}>{label}</label>
       <input
         id={id}
-        value={value}
-        onChange={onChange}
-        type={type}
-        className={clsx('w-full', className)}
         readOnly={!onChange}
+        {...props}
       />
     </div>
   );
